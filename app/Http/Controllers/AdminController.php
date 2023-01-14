@@ -10,8 +10,13 @@ class AdminController extends Controller
 
     public function Dashboard()
     {
-        $UserCount = User::count();
-        return view('Admin.dashboard', ['jumlah_user' => $UserCount]);
+        // $UserCount = User::count();
+        return view('Admin.dashboard');
     }
 
+    public function Voting()
+    {
+        // $UserCount = User::count();
+        return view('Admin.voting');
+    }
 }

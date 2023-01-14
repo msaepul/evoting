@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\MasterDataController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +20,6 @@ Route::get('/', function () {
 });
 
 Route::get('Dashboard', [AdminController::class, 'Dashboard']);
+Route::get('Voting', [AdminController::class, 'Voting']);
 
+Route::get('Indikator', [MasterDataController::class, 'Indikator']);
