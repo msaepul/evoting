@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MasterDataController;
 
 /*
@@ -19,7 +20,14 @@ Route::get('/', function () {
     return view('survei');
 });
 
-Route::get('Dashboard', [AdminController::class, 'Dashboard']);
-Route::get('Voting', [AdminController::class, 'Voting']);
+Route::middleware('guest')->group(function () {
+    Route::get('login', [AuthController::class, 'login'])->name('login');
+    Route::post('login', [AuthController::class, 'authenticating'])->name('authenticating');;
+});
 
-Route::get('Indikator', [MasterDataController::class, 'Indikator']);
+Route::middleware('auth')->group(function () {
+    Route::get('logout', [AuthController::class, 'logout']);
+    Route::get('Dashboard', [AdminController::class, 'Dashboard']);
+    Route::get('Indikator', [MasterDataController::class, 'Indikator']);
+    Route::get('Voting', [AdminController::class, 'Voting']);
+});

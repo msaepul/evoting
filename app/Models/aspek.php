@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class aspek extends Model
 {
-    use HasFactory;
+    protected $table = "aspeks";
+    protected $primarykey = "id";
+    protected $fillable = [
+        'id', 'aspek', 'ket'
+    ];
 }
