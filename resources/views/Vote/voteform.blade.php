@@ -35,7 +35,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <ul class="navbar-nav mr-auto">
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                    <a class="navbar-brand" href="{{ route('login') }}">Login</a>
+                    <a class="navbar-brand" href="login">Login</a>
                 </form>
             </div>
         </nav>

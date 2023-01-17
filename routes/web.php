@@ -22,12 +22,20 @@ Route::get('/', function () {
 
 Route::middleware('guest')->group(function () {
     Route::get('login', [AuthController::class, 'login'])->name('login');
-    Route::post('login', [AuthController::class, 'authenticating'])->name('authenticating');;
+    Route::post('login', [AuthController::class, 'authenticating'])->name('authenticating');
+    Route::get('voteform', [Vote::class, 'voteform'])->name('voteform');
 });
 
 Route::middleware('auth')->group(function () {
     Route::get('logout', [AuthController::class, 'logout']);
     Route::get('Dashboard', [AdminController::class, 'Dashboard']);
-    Route::get('Indikator', [MasterDataController::class, 'Indikator']);
+
+    Route::get('Indikator', [MasterDataController::class, 'Indikator'])->name('Indikator');
+    Route::post('Indikator', [MasterDataController::class, 'IndikatorProses'])->name('indikator_proses');
+    Route::patch('/Indikator/{id}', ['as' => 'Indikator.update', 'uses' => 'App\Http\Controllers\MasterDataController@updateIndikator']);
+    Route::delete('/delete/{id}', ['as' => 'aspek.delete', 'uses' => 'App\Http\Controllers\MasterDataController@deleteIndikator']);
+
+
     Route::get('Voting', [AdminController::class, 'Voting']);
+    Route::get('DataVoting', [AdminController::class, 'DataVoting']);
 });

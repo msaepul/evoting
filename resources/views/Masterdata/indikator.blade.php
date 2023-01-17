@@ -31,7 +31,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <button type="button" class="btn btn-primary" data-toggle="modal"
-                                    data-target="#modal-user">
+                                    data-target="#modal-indikator">
                                     <i class="nav-icon fas fa-plus"></i> Buat Indikator
                                 </button>
                             </div>
@@ -49,24 +49,24 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {{-- @foreach ($users as $user) --}}
-                                    <tr>
-                                        <td>asd</td>
-                                        {{-- <td>{{ $loop->iteration }}</td> --}}
-                                        <td>asd</td>
-                                        <td>asd</td>
-                                        <td>asd</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>asd2</td>
-                                        {{-- <td>{{ $loop->iteration }}</td> --}}
-                                        <td>asd2</td>
-                                        <td>asd2</td>
-                                        <td>asd2</td>
-
-                                    </tr>
-                                    {{-- @endforeach --}}
+                                    @foreach ($aspeks as $aspek)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $aspek->aspek }}</td>
+                                            <td>{{ $aspek->ket }}</td>
+                                            <td>
+                                                <button type="button" class="btn btn-success" data-toggle="modal"
+                                                    data-target="#modal-edit{{ $aspek->id }}">
+                                                    <i class="nav-icon fas fa-pen"></i>Edit
+                                                </button>
+                                                <button type="button" class="btn btn-danger" data-toggle="modal"
+                                                    data-target="#modal-delete{{ $aspek->id }}">
+                                                    <i class="nav-icon fas fa-trash"></i> hapus
+                                                </button>
+                                            </td>
+                                            @include('Masterdata.modaleditindikator')
+                                        </tr>
+                                    @endforeach
 
                                 </tbody>
                             </table>

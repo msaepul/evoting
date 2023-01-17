@@ -55,6 +55,15 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="DataVoting"
+                        @if (request()->route()->uri == 'DataVoting') class="nav-link active" @else class="nav-link " @endif>
+                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <p>
+                            Data Voting
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-header">Master Data</li>
                 <li class="nav-item">
                     <a href="Indikator"

@@ -1,4 +1,4 @@
-<div class="modal fade" id="modal-user">
+<div class="modal fade" id="modal-indikator">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -9,11 +9,11 @@
             </div>
             <div class="card-body">
                 <p><b>Isi Indikator Penilaian</b></p>
-                <form action="user" method="post">
+                <form action="Indikator" method="post">
                     @csrf
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Indikator" id="nama_lengkap"
-                            name="nama_lengkap" required>
+                        <input type="text" class="form-control" placeholder="Indikator" id="indikator" name="aspek"
+                            required>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas"></span>
@@ -21,7 +21,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <textarea class="form-control" id="inputDeskripsi" placeholder="Deskripsi Roti"></textarea>
+                        <textarea class="form-control" id="keterangan" name="ket"placeholder="Deskripsi Indikator"></textarea>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas "></span>
