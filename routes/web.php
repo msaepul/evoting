@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MasterDataController;
+use App\Http\Controllers\PublicController;
+
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,14 +19,15 @@ use App\Http\Controllers\MasterDataController;
 |
 */
 
-Route::get('/', function () {
-    return view('survei');
-});
+// Route::get('/', function () {
+//     return view('survei');
+// });
 
 Route::middleware('guest')->group(function () {
+    Route::get('/', [AuthController::class, 'index'])->name('index');
     Route::get('login', [AuthController::class, 'login'])->name('login');
     Route::post('login', [AuthController::class, 'authenticating'])->name('authenticating');
-    Route::get('voteform', [Vote::class, 'voteform'])->name('voteform');
+    Route::get('Voteform', [PublicController::class, 'voteform'])->name('voteform');
 });
 
 Route::middleware('auth')->group(function () {
@@ -38,4 +42,6 @@ Route::middleware('auth')->group(function () {
 
     Route::get('Voting', [AdminController::class, 'Voting']);
     Route::get('DataVoting', [AdminController::class, 'DataVoting']);
+
+    Route::resource('posts', AdminController::class);
 });
