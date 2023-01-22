@@ -41,6 +41,7 @@ Route::middleware('auth')->group(function () {
 
 
     Route::get('Voting', [AdminController::class, 'Voting']);
+    Route::post('Voting', [AdminController::class, 'store'])->name('voting.store');
     Route::get('DataVoting', [AdminController::class, 'DataVoting']);
 
     Route::resource('posts', AdminController::class);

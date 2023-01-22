@@ -11,6 +11,6 @@ class vote extends Model
     protected $table = "votes";
     protected $primarykey = "id";
     protected $fillable = [
-        'id_vot', 'produk', 'id_penilaian', 'nilai', 'input_harga', 'masukan', 'created_at', 'updated_at', 'deleted_at'
+        'kode_vote', 'judul_vote', 'id_aspek', 'nama_roti', 'photo_roti', 'deskripsi'
     ];
 }
