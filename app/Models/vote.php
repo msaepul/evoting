@@ -13,4 +13,8 @@ class vote extends Model
     protected $fillable = [
         'kode_vote', 'judul_vote', 'id_aspek', 'nama_roti', 'photo_roti', 'deskripsi'
     ];
+
+    protected $attributes = [
+        'photo_roti' => 'default.jgp'
+    ];
 }

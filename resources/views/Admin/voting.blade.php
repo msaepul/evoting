@@ -22,16 +22,9 @@
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
+        @include('layout.flash-message')
         <!-- /.content-header -->
         {{-- enctype="multipart/form-data" --}}
-        @if (session('success'))
-            <div class="alert alert-success">{{ session('success') }}</div>
-        @endif
-
-        @if (session('error'))
-            <div class="alert alert-danger">{{ session('error') }}</div>
-        @endif
-
 
         <!-- Main content -->
         <section class="content">
@@ -67,7 +60,7 @@
                                     <div class="form-group row">
                                         <label for="inputEmail" class="col-sm-2 col-form-label">Indikator Penilaian</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="id_aspek" id="id_aspek"
+                                            <input type="text" class="form-control" id="id_aspek" name="id_aspek"
                                                 placeholder="Indikator">
                                         </div>
                                     </div>

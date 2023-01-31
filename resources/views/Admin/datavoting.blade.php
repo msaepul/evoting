@@ -36,7 +36,7 @@
                                     </button>
                                 </a>
                             </div>
-
+                            @include('layout.flash-message')
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <table id="example1" class="table table-bordered table-striped">
@@ -46,23 +46,25 @@
                                             <th>Kode Voting</th>
                                             <th>Judul</th>
                                             <th>Indikator Penilaian</th>
+                                            <th>Deskripsi</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($votes as $vote)
+                                        @foreach ($vote as $a)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $vote->judul }}</td>
-                                                <td>{{ $vote->ket }}</td>
-                                                <td>{{ $vote->ket }}</td>
+                                                <td>{{ $a->kode_vote }}</td>
+                                                <td>{{ $a->judul_vote }}</td>
+                                                <td>{{ $a->Indikator }}</td>
+                                                <td>{{ $a->deskripsi }}</td>
                                                 <td>
                                                     <button type="button" class="btn btn-success" data-toggle="modal"
-                                                        data-target="#modal-edit{{ $vote->id }}">
+                                                        data-target="#modal-edit{{ $a->id }}">
                                                         <i class="nav-icon fas fa-pen"></i>Edit
                                                     </button>
                                                     <button type="button" class="btn btn-danger" data-toggle="modal"
-                                                        data-target="#modal-delete{{ $vote->id }}">
+                                                        data-target="#modal-delete{{ $a->id }}">
                                                         <i class="nav-icon fas fa-trash"></i> hapus
                                                     </button>
                                                 </td>
