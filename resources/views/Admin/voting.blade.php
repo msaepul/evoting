@@ -90,9 +90,9 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="photo_roti" class="col-sm-3 col-form-label">Photo Roti</label>
+                                        <label for="image" class="col-sm-3 col-form-label">Photo Roti</label>
                                         <div class="col-sm-9">
-                                            <input type="file" class="form-control" id="photo_roti" name="photo_roti"
+                                            <input type="file" class="form-control" id="image" name="image"
                                                 placeholder="roti">
                                         </div>
                                     </div>

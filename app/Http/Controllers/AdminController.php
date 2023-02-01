@@ -37,17 +37,24 @@ class AdminController extends Controller
 
     public function store(request $request)
     {
-        $validate = $request->validate(
+        $validated = $request->validate(
             [
-                'kode_vote' => 'required`',
+                'kode_vote' => 'required',
             ],
             [
                 'kode_vote.required' =>  'Kode Tidak Boleh Kosong'
             ]
         );
 
+        if($request->file('image')){
+            $extension = $request ->file('image')->getClientOriginalExtension();
+            $newName = $request->kode_vote.'-'.now()->timestamp.'-'.$extension;
+            $request->file('image')->storeAs('photo_roti',$newName);
+        }
+        $request['photo_roti'] = $newName;
         $vote = vote::create($request->all());
-        return redirect('DataVoting')->with('success', 'Item created successfully!');;
+        return redirect('DataVoting')->with('success', 'Item created successfully!');
+
     }
 
     // public function store(request $request)
